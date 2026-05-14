@@ -1,0 +1,5 @@
+# These large binaries should be uploaded as GitHub Release assets, not committed
+kernel/boot.img
+kernel/vendor_dlkm.img
+kernel/dtbo.img
+fourteen/bluejay-los/Image

@@ -1,0 +1,36 @@
+# devices.yml entry for kali-nethunter-kernels repository
+# Add this block to the devices.yml in:
+# https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels
+
+- bluejay-los:
+    model: Google Pixel 6a
+    images:
+      - id: bluejay-los
+        name: Google Pixel 6a (LineageOS 21)
+        android: fourteen
+        rootfs: full
+        docs: "https://github.com/rishi221002/bluejay-kali_nethunter"
+        note: "GKI 2.0 kernel. Requires flashing boot.img + vendor_dlkm.img via fastboot. HID via Magisk module (included). USB HID gadget uses SIGSTOP/SIGCONT pattern due to Android USB HAL constraints on GKI 2.0."
+    kernels:
+      - id: bluejay-los
+        description: Google Pixel 6a for LineageOS 21 (Android 14)
+        kernelstring: "bluejay-kali_nethunter kernel"
+        devicenames: bluejay, Pixel 6a
+        arch: arm64
+        ramdisk: auto
+        resolution: 1080x2400
+        block: /dev/block/by-name/boot
+        version: "1.0"
+        supersu: auto
+        modules: 1
+        slot_device: 1
+        versions:
+          - android: fourteen
+            linux: "6.1"
+            description: LineageOS 21 (Android 14)
+            author: rishi221002
+            source: "git clone https://github.com/rishi221002/bluejay-kali_nethunter"
+            features:
+              - HID-4
+              - ATH9K_HTC
+              - RTL8xxxU
