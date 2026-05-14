@@ -75,8 +75,6 @@ fastboot reboot
 
 ### Step 3 — Flash the HID Patch via Magisk
 
-The installer bundles the NetHunter kernel and uses AnyKernel3 to patch your `boot` and `dtbo` partitions automatically. It also installs the Kali NetHunter app, terminal, KeX, and chroot environment.
-
 1. Copy `magisk-module/nethunter-hid-bluejay-fix.zip` to your device
 2. Open **Magisk** → **Modules** → **Install from storage**
 3. Select `bluejay-kali_nethunter-hid.zip`
