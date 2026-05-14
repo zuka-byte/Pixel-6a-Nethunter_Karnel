@@ -33,10 +33,10 @@ Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **LineageOS 
 
 | File | Description |
 |---|---|
-| `kernel/boot.img` | NetHunter kernel boot image |
-| `kernel/dtbo.img` | Device tree overlay |
-| `kernel/vendor_dlkm.img` | Vendor kernel modules (ath9k, rtl8xxxu, etc.) |
-| `magisk-module/bluejay-kali_nethunter-hid.zip` | Magisk module — enables `/dev/hidg0` on every boot |
+| `boot.img` | NetHunter kernel boot image |
+| `dtbo.img` | Device tree overlay |
+| `vendor_dlkm.img` | Vendor kernel modules (ath9k, rtl8xxxu, etc.) |
+| `bluejay-kali_nethunter-hid.zip` | Magisk module — enables `/dev/hidg0` on every boot |
 
 ---
 
@@ -57,13 +57,11 @@ fastboot reboot fastboot
 When the device shows the fastbootd menu:
 
 ```bash
-fastboot flash vendor_dlkm kernel/vendor_dlkm.img
+fastboot flash vendor_dlkm vendor_dlkm.img
 fastboot reboot
 ```
 
 ### Step 2 — Install Magisk
-
-If Magisk is not already installed:
 
 1. Download the latest **Magisk APK** from [github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)
 2. `adb install Magisk-*.apk`
@@ -93,11 +91,6 @@ After reboot, `/dev/hidg0` will be present and Rucky / NetHunter HID attacks wil
 
 ---
 
-## Using HID Attacks
-
-Open **Rucky** or the **Kali NetHunter** app. Both should detect `/dev/hidg0` and allow HID keyboard payload delivery.
-
----
 
 ## How the HID Module Works
 
