@@ -6,14 +6,14 @@
     model: Google Pixel 6a
     images:
       - id: bluejay-los
-        name: Google Pixel 6a (LineageOS 21)
-        android: fourteen
+        name: Google Pixel 6a (LineageOS 23.2)
+        android: sixteen
         rootfs: full
         docs: "https://github.com/RishiRats/bluejay-kali_nethunter"
         note: "GKI 2.0 kernel. Requires flashing boot.img + vendor_dlkm.img via fastboot. HID via Magisk module (included). USB HID gadget uses SIGSTOP/SIGCONT pattern due to Android USB HAL constraints on GKI 2.0."
     kernels:
       - id: bluejay-los
-        description: Google Pixel 6a for LineageOS 21 (Android 14)
+        description: Google Pixel 6a for LineageOS 23.2 (Android 16)
         kernelstring: "bluejay-kali_nethunter kernel"
         devicenames: bluejay, Pixel 6a
         arch: arm64
@@ -25,9 +25,9 @@
         modules: 1
         slot_device: 1
         versions:
-          - android: fourteen
+          - android: sixteen
             linux: "6.1"
-            description: LineageOS 21 (Android 14)
+            description: LineageOS 23.2 (Android 16)
             author: "RishiRats & Claude (Anthropic)"
             source: "git clone https://github.com/RishiRats/bluejay-kali_nethunter"
             features:
