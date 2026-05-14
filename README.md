@@ -54,7 +54,7 @@ Skip this step if you don't need external WiFi adapters (ath9k, rtl8xxxu). The H
 `vendor_dlkm` is a logical partition and can only be written from fastbootd, not from within Android. Boot into fastboot mode (hold **Power + Volume Down**), then:
 
 ```bash
-fastboot reboot fastboot
+adb reboot fastboot
 ```
 
 When the device shows the fastbootd menu:
