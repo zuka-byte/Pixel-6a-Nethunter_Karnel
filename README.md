@@ -25,7 +25,6 @@ Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **LineageOS 
 - Google Pixel 6a (`bluejay`)
 - LineageOS 23.2 (Android 16) installed
 - Unlocked bootloader
-- Magisk (any recent version) installed
 - `adb` and `fastboot` on your PC
 
 ---
@@ -42,34 +41,55 @@ Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **LineageOS 
 ---
 
 ## Installation
-Have Lineage OS already up and running
 
-### Step 1 — Flash the kernel
+> **Note:** The Pixel 6a uses dynamic partitions. The NetHunter installer zip **must** be flashed via Magisk (not TWRP). The NetHunter installer handles flashing the kernel automatically — no manual `fastboot flash boot` needed.
 
-Boot your device into fastboot mode (hold **Power + Volume Down**):
+### Step 1 — Flash WiFi kernel modules (optional)
+
+Skip this step if you don't need external WiFi adapters (ath9k, rtl8xxxu). The HID feature works without it.
+
+`vendor_dlkm` is a logical partition and can only be written from fastbootd, not from within Android. Boot into fastboot mode (hold **Power + Volume Down**), then:
 
 ```bash
-fastboot flash boot kernel/boot.img
-fastboot flash dtbo kernel/dtbo.img
 fastboot reboot fastboot
 ```
 
-When the device reboots into **fastbootd** (you'll see the fastbootd menu):
+When the device shows the fastbootd menu:
 
 ```bash
 fastboot flash vendor_dlkm kernel/vendor_dlkm.img
 fastboot reboot
 ```
 
-> `vendor_dlkm` is a logical partition and must be flashed from fastbootd, not from the bootloader.
+### Step 2 — Install Magisk
 
-### Step 2 — Install the HID Magisk module
+If Magisk is not already installed:
 
-1. Copy `magisk-module/bluejay-kali_nethunter-hid.zip` to your device storage
-2. Open the **Magisk** app
-3. Go to **Modules** → **Install from storage**
-4. Select `bluejay-kali_nethunter-hid.zip`
+1. Download the latest **Magisk APK** from [github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)
+2. `adb install Magisk-*.apk`
+3. Open the **Magisk** app → tap **Install** → **Direct Install (Recommended)**
+4. Tap **Reboot**
+
+### Step 3 — Flash the NetHunter installer via Magisk
+
+The installer bundles the NetHunter kernel and uses AnyKernel3 to patch your `boot` and `dtbo` partitions automatically. It also installs the Kali NetHunter app, terminal, KeX, and chroot environment.
+
+1. Download `nethunter-*-bluejay-los-sixteen-kalifs_full.zip` from the [Releases](../../releases) page
+2. Copy it to your device
+3. Open **Magisk** → **Modules** → **Install from storage**
+4. Select the NetHunter zip
 5. Tap **Reboot**
+
+### Step 4 — Install the HID Magisk module
+
+This enables `/dev/hidg0` (USB HID keyboard) on every boot.
+
+1. Copy `magisk-module/bluejay-kali_nethunter-hid.zip` to your device
+2. Open **Magisk** → **Modules** → **Install from storage**
+3. Select `bluejay-kali_nethunter-hid.zip`
+4. Tap **Reboot**
+
+After reboot, `/dev/hidg0` will be present and Rucky / NetHunter HID attacks will work.
 
 ---
 
