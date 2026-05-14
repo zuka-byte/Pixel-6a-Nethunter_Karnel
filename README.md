@@ -149,6 +149,11 @@ tools/bazel run --config=use_source_tree_aosp --config=bluejay \
 
 ---
 
+## Authors
+
+- **RishiRats** — [LinkedIn](https://www.linkedin.com/in/rishi-raturi/)
+- **Claude** (Anthropic) — kernel build system fixes, HID gadget research & SIGSTOP/SIGCONT solution
+
 ## Credits
 
 - [Kali NetHunter](https://www.kali.org/docs/nethunter/) project
