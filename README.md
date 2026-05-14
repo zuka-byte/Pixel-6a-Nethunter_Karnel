@@ -1,10 +1,10 @@
 # bluejay-kali_nethunter
 
-Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **LineageOS 21 (Android 14)**.
+Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **LineageOS 23.2 (Android 16)**.
 
 - **Kernel:** `6.1.145-android14-11-maybe-dirty-NetHunter` (GKI 2.0)
-- **Base:** LineageOS 21 kernel source (Kleaf/Bazel build system)
-- **Tested on:** LineageOS 21 + Magisk 30.7
+- **Base:** LineageOS 23.2 kernel source (Kleaf/Bazel build system)
+- **Tested on:** LineageOS 23.2 + Magisk 30.7
 
 ---
 
@@ -23,7 +23,7 @@ Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **LineageOS 
 ## Requirements
 
 - Google Pixel 6a (`bluejay`)
-- LineageOS 21 (Android 14) installed
+- LineageOS 23.2 (Android 16) installed
 - Unlocked bootloader
 - Magisk (any recent version) installed
 - `adb` and `fastboot` on your PC
@@ -42,6 +42,7 @@ Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **LineageOS 
 ---
 
 ## Installation
+Have Lineage OS already up and running
 
 ### Step 1 — Flash the kernel
 
@@ -69,21 +70,6 @@ fastboot reboot
 3. Go to **Modules** → **Install from storage**
 4. Select `bluejay-kali_nethunter-hid.zip`
 5. Tap **Reboot**
-
-### Step 3 — Verify
-
-After reboot, confirm HID is active:
-
-```bash
-adb shell ls -la /dev/hidg0
-# Expected: crw-rw-rw- 1 root root 481, 0 ...
-```
-
-Check the setup log:
-
-```bash
-adb shell cat /data/local/tmp/nethunter-hid.log
-```
 
 ---
 
@@ -143,11 +129,6 @@ tools/bazel run --config=use_source_tree_aosp --config=bluejay \
 - This disables all Magisk modules for that boot
 - Use `adb root` then disable the module: `touch /data/adb/modules/nethunter-hid/disable`
 
-**Rucky says "kernel not supported"**
-- Rucky checks for `/dev/hidg0` — confirm it exists with `adb shell ls /dev/hidg0`
-- If it exists but Rucky still complains, check Rucky has root access granted in Magisk
-
----
 
 ## Authors
 
