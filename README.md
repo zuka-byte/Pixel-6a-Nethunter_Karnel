@@ -94,45 +94,6 @@ After reboot, `/dev/hidg0` will be present and Rucky / NetHunter HID attacks wil
 
 ---
 
-
-## How the HID Module Works
-
-Android's USB HAL (`android.hardware.usb.gadget-service.gs101`) owns the USB configfs gadget entirely. The Linux kernel refuses to link a new USB function to an active config while the UDC is bound (returns `EINVAL`), and stopping the HAL kills it — causing `hwservicemanager` to detect a HAL death and trigger a system restart loop every 2-3 minutes.
-
-The module solves this with a **SIGSTOP/SIGCONT freeze**:
-
-1. Wait for boot to complete and HAL to finish initial USB setup
-2. Create `hid.usb0` configfs function with a standard boot keyboard descriptor
-3. `SIGSTOP` the HAL process — freezes it without killing it, so `hwservicemanager` sees no death event and no watchdog fires
-4. Unbind the UDC — USB disconnects briefly (~100ms)
-5. Link `hid.usb0` into `configs/b.1/` — succeeds because UDC is now unbound
-6. Rebind the UDC — USB reconnects presenting ADB + HID as a composite device
-7. `SIGCONT` the HAL — it wakes up idle, gadget already configured, does nothing
-8. `/dev/hidg0` appears with `crw-rw-rw-` permissions
-
-The entire freeze window is under 100ms — well below any HAL watchdog timeout.
-
----
-
-## Building from Source
-
-The kernel is built using the **Kleaf/Bazel** build system from LineageOS kernel sources.
-
-Key customizations:
-- `CONFIG_LOCALVERSION="-NetHunter"` in `aosp/arch/arm64/configs/gki_defconfig`
-- `CONFIG_USB_CONFIGFS_F_HID=y` (enables HID gadget function)
-- `CONFIG_ATH9K_HTC=m` and `CONFIG_RTL8XXXU=m` in `private/devices/google/bluejay/bluejay_defconfig`
-- `kmi_symbol_list = None` in `private/devices/google/bluejay/BUILD.bazel` to allow out-of-tree module symbols
-- GKI built from source (`--config=use_source_tree_aosp --config=bluejay`) to match vermagic with device modules
-
-Build command:
-```bash
-tools/bazel run --config=use_source_tree_aosp --config=bluejay \
-    //private/devices/google/bluejay:bluejay -- --dist_dir=out/bluejay/dist
-```
-
----
-
 ## Troubleshooting
 
 **`/dev/hidg0` not present after reboot**
