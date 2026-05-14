@@ -74,7 +74,7 @@ If Magisk is not already installed:
 
 The installer bundles the NetHunter kernel and uses AnyKernel3 to patch your `boot` and `dtbo` partitions automatically. It also installs the Kali NetHunter app, terminal, KeX, and chroot environment.
 
-1. Download `nethunter-*-bluejay-los-sixteen-kalifs_full.zip` from the [Releases](../../releases) page
+1. Download `nethunter-bluejay-los-sixteen-kalifs_nano.zip` from the [Releases](../../releases) page
 2. Copy it to your device
 3. Open **Magisk** → **Modules** → **Install from storage**
 4. Select the NetHunter zip
