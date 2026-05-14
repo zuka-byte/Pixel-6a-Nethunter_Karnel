@@ -14,9 +14,12 @@ Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **LineageOS 
 |---|---|
 | USB HID keyboard (`/dev/hidg0`) | ✅ Working |
 | Rucky / NetHunter HID attacks | ✅ Working |
-| External WiFi — Atheros AR9271 (`ath9k_htc`) | ✅ Built-in module |
-| External WiFi — Realtek RTL8xxxU (`rtl8xxxu`) | ✅ Built-in module |
+| External WiFi — Atheros AR9271 (`ath9k_htc`) | ✅ Built-in module, ⚠️ Need someone to check |
+| External WiFi — Realtek RTL8xxxU (`rtl8xxxu`) | ✅ Built-in module, ⚠️ Need someone to check |
+| chroot| ✅ Working |
+| Metasploit | ✅ Working |
 | All stock LineageOS functionality | ✅ Preserved |
+and many more features are working
 
 ---
 
