@@ -1,4 +1,4 @@
-# bluejay-kali_nethunter
+# bluejay-kali_nethunter by Rishi Raturi
 
 Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **lineage-23.2-20260509-nightly-bluejay-signed.zip (Android 16)**.
 
@@ -17,6 +17,7 @@ Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **lineage-23
 | External WiFi — Atheros AR9271 (`ath9k_htc`) | ✅ Built-in module, ⚠️ Need someone to check |
 | External WiFi — Realtek RTL8xxxU (`rtl8xxxu`) | ✅ Built-in module, ⚠️ Need someone to check |
 | chroot| ✅ Working |
+| Bluetooth Arsenal| 🚫 Not Working |
 | Metasploit | ✅ Working |
 | All stock LineageOS functionality | ✅ Preserved |
 and many more features are working
@@ -66,7 +67,8 @@ fastboot flash boot patched_boot.img
 fastboot flash dtbo dtbo.img
 fastboot reboot
 ```
-
+## If you can't flash vendor_dlkm img 
+just go on Recovery then select advance option and click fastboot then you will see fastboot mood like recovery interface then type command same command again: fastboot flash vendor_dlkm vendor_dlkm.img
 ### Step 2 — Install Magisk
 
 1. Download the latest **Magisk APK** from [github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)
