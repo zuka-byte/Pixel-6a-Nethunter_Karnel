@@ -30,6 +30,7 @@ and many more features are working
 - LineageOS 23.2 (Android 16) installed
 - Unlocked bootloader
 - `adb` and `fastboot` on your PC
+- You need must lineage-23.2-20260509-nightly-bluejay-signed.zip not any other lineageos versions if you not have this zip Contact Email: zuborajinfo@gmail.com
 
 ---
 
@@ -68,7 +69,7 @@ fastboot flash dtbo dtbo.img
 fastboot reboot
 ```
 ## If you can't flash vendor_dlkm img 
-just go on Recovery then select advance option and click fastboot then you will see fastboot mood like recovery interface then type command same command again: fastboot flash vendor_dlkm vendor_dlkm.img
+just go on Recovery then select advanced and then click Enter fastboot then you will see fastboot d mood like recovery interface then type command same command again: fastboot flash vendor_dlkm vendor_dlkm.img
 ### Step 2 — Install Magisk
 
 1. Download the latest **Magisk APK** from [github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)
