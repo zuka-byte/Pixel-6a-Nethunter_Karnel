@@ -1,4 +1,4 @@
-# bluejay-kali_nethunter by Rishi Raturi
+# bluejay-kali_nethunter by Rishi Raturi (Eng)
 
 Kali NetHunter kernel for the **Google Pixel 6a (bluejay)** running **lineage-23.2-20260509-nightly-bluejay-signed.zip (Android 16)**.
 
